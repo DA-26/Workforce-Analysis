@@ -180,5 +180,5 @@ Power BI Desktop and Power BI Service, Power Query (M), DAX, Excel (for initial 
 
 **Doreen Awuor** 
 Data Analytics
-[LinkedIn](www.linkedin.com/in/doreenawuor/) | [GitHub](https://github.com/DA-26) 
+[LinkedIn](https://www.linkedin.com/in/doreenawuor/) | [GitHub](https://github.com/DA-26) 
 
