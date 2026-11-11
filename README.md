@@ -1,16 +1,14 @@
-# TalentCore Workforce Analytics (Power BI)
+# Workforce Analytics (Power BI)
 
 An end-to-end workforce analytics project that turns a messy HR dataset into a five-page Power BI report covering headcount, attrition, performance and training, and compensation and diversity. The work follows the CRISP-DM framework.
 
-TalentCore is a pan-African technology services company with offices in Nairobi, Mombasa, Kisumu, Kampala, Dar es Salaam and Kigali (four countries), six departments and 24 job roles.
-
-<img width="975" height="548" alt="image" src="https://github.com/user-attachments/assets/ba7f5326-1ee1-4dc9-bc14-95c40d1780c6" />
+The company is a pan-African technology services company with offices in Nairobi, Mombasa, Kisumu, Kampala, Dar es Salaam and Kigali (four countries), six departments and 24 job roles.
 
 ---
 
-## Business problem
+## Business Problem
 
-TalentCore holds employee data from 2017 to 2025 but has no clear tracking of headcount or workforce trends, and the growing workforce makes them hard to monitor. The business wants to understand its employee dynamics, with the aim of improving retention and performance as part of workforce planning. This project is the first step. It answers five objectives:
+The company holds employee data from 2017 to 2025 but has no clear tracking of headcount or workforce trends, and the growing workforce makes them hard to monitor. The business wants to understand its employee dynamics, with the aim of improving retention and performance as part of workforce planning. This project is the first step and it answers five objectives:
 
 1. **Headcount:** know current employee headcount by office location, department, job role, education level, gender and age.
 2. **Performance and training:** analyse performance ratings and training participation by department, with overtime included.
@@ -18,7 +16,7 @@ TalentCore holds employee data from 2017 to 2025 but has no clear tracking of he
 4. **Compensation and diversity:** analyse salary distribution and diversity balance across the workforce.
 5. **Summary view:** provide a detailed and summarised view of the company workforce.
 
-## Key findings
+## Key Findings
 
 | Area | Finding |
 |---|---|
@@ -31,7 +29,7 @@ TalentCore holds employee data from 2017 to 2025 but has no clear tracking of he
 
 These are descriptive findings. The data shows where patterns exist but not why they occur.
 
-## Dashboard pages
+## Dashboard Pages
 
 | Page | What it shows |
 |---|---|
@@ -41,13 +39,34 @@ These are descriptive findings. The data shows where patterns exist but not why 
 | Attrition Analysis | Attrition rate, exits by country and year, tenure of leavers, and attrition by office, department and education |
 | Compensation and Diversity | Average salary by gender across department, education level and country, plus headcount by gender |
 
+## Dashboard Preview
+
+Executive Summary
+
+<img width="975" height="548" alt="image" src="https://github.com/user-attachments/assets/ba7f5326-1ee1-4dc9-bc14-95c40d1780c6" />
+
+
+Workforce Overview
+
 <img width="975" height="550" alt="image" src="https://github.com/user-attachments/assets/f5549079-7862-4c85-a010-478b53dba431" />
+
+
+
+Departmental Performance
 
 <img width="975" height="546" alt="image" src="https://github.com/user-attachments/assets/a3022717-daaa-4ec9-9594-e7908e4d34cc" />
 
+
+
+Attrition Analysis
+
 <img width="975" height="549" alt="image" src="https://github.com/user-attachments/assets/2cdb4fe6-e1b3-4d02-b6ee-66e4665b7bdb" />
 
-<img width="975" height="549" alt="image" src="https://github.com/user-attachments/assets/96239a9c-750a-41c3-a984-a324ff8bfdad" />
+
+
+Compensation and Diversity
+
+<img width="975" height="549" alt="image" src="https://github.com/user-attachments/assets/96239a9c-750a-41c3-a984-a324ff8bfdad" /> 
 
 
 ## Approach (CRISP-DM)
@@ -59,7 +78,7 @@ These are descriptive findings. The data shows where patterns exist but not why 
 5. **Evaluation:** interpreted each dashboard against its objective, and checked totals across visuals.
 6. **Deployment:** five-page report with page navigation, published to Power BI Service.
 
-## Data understanding
+## Data Understanding
 
 The source is an Excel file with 1,000 rows and 16 fields. Only 247 rows held employee data. The other 753 rows contained only a hire date, and two of those were otherwise blank. Other observations:
 
@@ -70,7 +89,7 @@ The source is an Excel file with 1,000 rows and 16 fields. Only 247 rows held em
 - 2 records were marked "Left" with no Exit Date.
 - 9 records had an Exit Date earlier than the Hire Date.
 
-## Data preparation highlights
+## Data Preparation Highlights
 
 | Issue | Treatment |
 |---|---|
@@ -89,14 +108,14 @@ The source is an Excel file with 1,000 rows and 16 fields. Only 247 rows held em
 
 Final dataset: **243 employees** (208 active, 35 left). Full details are in [`docs/power-query-steps.md`](docs/power-query-steps.md).
 
-## Data model
+## Data Model
 
 A star schema with `Workforce Data` as the fact table and five dimension tables: Date (marked as a date table), Department, Education, Job Role and Location (with Country as an attribute).
 
 - The Date table has an active relationship to Hire Date and an inactive relationship to Exit Date. The exit-based measures (`Exits` and `Avg Tenure of Leavers (Years)`) activate it with `USERELATIONSHIP`.
 - The 25 DAX measures cover headcount, attrition, performance and training, and compensation. The full list, with purposes, is in [`docs/dax-measures.md`](docs/dax-measures.md).
 
-## Assumptions and limitations
+## Assumptions and Limitations
 
 - **Small sample.** 243 records and 35 leavers, so splits by department, office or gender can rest on a handful of people. For example, Operations' 100% early attrition is a single leaver, and Nairobi's 50% is one of two.
 - **Snapshot data.** One rating and one training figure per employee, so the data cannot show cause and effect. A weak link between training and ratings does not show that training has no value.
@@ -117,7 +136,7 @@ A star schema with `Workforce Data` as the fact table and five dimension tables:
 5. **Strengthen first-year onboarding,** since 17% of leavers left within a year.
 6. **Review pay in the groups with larger gaps** by comparing individual job roles and tenure. Examples to start with are Customer Support roles, Sales Managers (women earn more) and HR Officers (men earn more).
 
-## Skills demonstrated
+## Skills Demonstrated
 
 - **Data cleaning in Power Query:** text standardisation, date parsing (including Excel serial numbers), conditional logic and documented assumptions.
 - **Data modelling:** converting a flat table into a star schema, with an active and an inactive relationship to a Date table.
@@ -140,7 +159,7 @@ workforce-analytics/
 README.md
 report/          Written project report (PDF)
 dashboards/      Screenshots of each report page
-data/            Dataset (see note below)
+data/            Dataset (provided for a capstone project)
 powerbi/         Power BI file (.pbix)
 docs/
     power-query-steps.md
@@ -159,6 +178,7 @@ Power BI Desktop and Power BI Service, Power Query (M), DAX, Excel (for initial 
 
 ## Author
 
-**Doreen Awuor** Data Analytics.
-[LinkedIn] (www.linkedin.com/in/doreenawuor) | [GitHub] (https://github.com/DA-26) 
+**Doreen Awuor** 
+Data Analytics.
+[LinkedIn](www.linkedin.com/in/doreenawuor) | [GitHub](https://github.com/DA-26) 
 
