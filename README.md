@@ -179,6 +179,6 @@ Power BI Desktop and Power BI Service, Power Query (M), DAX, Excel (for initial 
 ## Author
 
 **Doreen Awuor** 
-Data Analytics.
+Data Analytics
 [LinkedIn](www.linkedin.com/in/doreenawuor) | [GitHub](https://github.com/DA-26) 
 
