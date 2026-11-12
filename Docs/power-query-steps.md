@@ -29,7 +29,7 @@ The raw IDs included `emp-1164`, `EMP1759`, `EMP-1734.0` and IDs with leading sp
 Table.ReplaceValue(#"Replaced Value1", "EMP--", "EMP-", Replacer.ReplaceText, {"Employee ID"})
 ```
 
-### Text standardisation (step 4)
+### Text Standardisation (step 4)
 
 - Case and spacing were standardised in Department, Job Role, Office Location, Education Level and Gender.
 - Variants were merged: `DIPLOMA` and `Diploma`, `Professional Cert` and `Professional Certification`, `M` and `Male`, `FEMALE` and `Female`, `KIGALI` and `Kigali`.
@@ -55,7 +55,7 @@ Table.TransformColumns(#"Replaced Value2", {{"Exit Date", each
 
 Text dates are read month-first, then day-first.
 
-### Reversed dates (step 6)
+### Reversed Dates (step 6)
 
 9 records had an Exit Date earlier than the Hire Date and an Attrition Status of "Left". The dates were assumed to be entered the wrong way round. A temporary flag column (`Date Order Corrected`) identified them, two columns built the corrected dates, and the originals were then replaced. The flag was removed afterwards.
 
@@ -75,7 +75,7 @@ The guideline for the data is that a blank Exit Date means the employee is still
 if [Attrition Status] = "Left" and [Exit Date] = null then "Active" else [Attrition Status]
 ```
 
-### Numeric fields (step 8)
+### Numeric Fields (step 8)
 
 | Field | Issue | Treatment |
 |---|---|---|
@@ -84,7 +84,7 @@ if [Attrition Status] = "Left" and [Exit Date] = null then "Active" else [Attrit
 | Training Hours (Last 12 Months) | 15 values of `N/A`, 6 blanks and 3 negative values | `N/A` set to null, because 0 would imply no training. Negative values were corrected |
 | Age | Text such as `57 yrs`, values of 200 and -5, 6 missing | Converted to numbers. Invalid values were set to null and shown as "Unknown" in the age band |
 
-### Derived columns (step 10)
+### Derived Columns (step 10)
 
 | Column | Logic |
 |---|---|
