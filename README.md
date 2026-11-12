@@ -106,14 +106,14 @@ The source is an Excel file with 1,000 rows and 16 fields. Only 247 rows held em
 | Remarks column | Removed, as it was mostly empty and not needed |
 | Added columns | Tenure at Exit (Years), Tenure Band at Exit and Age Band |
 
-Final dataset: **243 employees** (208 active, 35 left). Full details are in [`docs/power-query-steps.md`](docs/power-query-steps.md).
+Final dataset: **243 employees** (208 active, 35 left). Full details are in [`Docs/power-query-steps.md`](Docs/power-query-steps.md).
 
 ## Data Model
 
 A star schema with `Workforce Data` as the fact table and five dimension tables: Date (marked as a date table), Department, Education, Job Role and Location (with Country as an attribute).
 
 - The Date table has an active relationship to Hire Date and an inactive relationship to Exit Date. The exit-based measures (`Exits` and `Avg Tenure of Leavers (Years)`) activate it with `USERELATIONSHIP`.
-- The 25 DAX measures cover headcount, attrition, performance and training, and compensation. The full list, with purposes, is in [`docs/dax-measures.md`](docs/dax-measures.md).
+- The 25 DAX measures cover headcount, attrition, performance and training, and compensation. The full list, with purposes, is in [`Docs/dax-measures.md`](Docs/dax-measures.md).
 
 ## Assumptions and Limitations
 
@@ -148,20 +148,20 @@ A star schema with `Workforce Data` as the fact table and five dimension tables:
 
 | File | Contents |
 |---|---|
-| [`docs/power-query-steps.md`](docs/power-query-steps.md) | Cleaning log with the key M formulas |
-| [`docs/dax-measures.md`](docs/dax-measures.md) | All 25 measures with purposes and formulas |
-| [`docs/data-dictionary.md`](docs/data-dictionary.md) | Fields, dimension tables and key definitions |
+| [`Docs/power-query-steps.md`](Docs/power-query-steps.md) | Cleaning log with the key M formulas |
+| [`Docs/dax-measures.md`](Docs/dax-measures.md) | All 25 measures with purposes and formulas |
+| [`Docs/data-dictionary.md`](Docs/data-dictionary.md) | Fields, dimension tables and key definitions |
 
 ## Folder Contents
 
 ```
-workforce-analytics/
+Workforce-analysis/
 README.md
-report/          Written project report (PDF)
-dashboards/      Screenshots of each report page
-data/            Dataset (provided for a capstone project)
-powerbi/         Power BI file (.pbix)
-docs/
+Report/          Written project report (PDF)
+Dashboards/      Screenshots of each report page
+Data/            Dataset (provided for a capstone project)
+Powerbi/         Power BI file (.pbix)
+Docs/
     power-query-steps.md
     dax-measures.md
     data-dictionary.md
@@ -169,12 +169,6 @@ docs/
 ## Tools
 
 Power BI Desktop and Power BI Service, Power Query (M), DAX, Excel (for initial exploration).
-
-## How to open
-
-1. Download `powerbi/workforce-analytics.pbix`.
-2. Open it in [Power BI Desktop](https://powerbi.microsoft.com/desktop/) (Windows).
-3. If prompted, point the data source to the file in the `data/` folder.
 
 ## Author
 
