@@ -25,7 +25,7 @@ One row per employee. The raw file had 16 fields, and the Remarks field was remo
 | Tenure at Exit (Years) | Decimal | Years between Hire Date and Exit Date (blank for current employees) | Added column |
 | Tenure Band at Exit | Text | Tenure at exit grouped into bands, with "Active" for current employees | Added column |
 
-## Dimension tables
+## Dimension Tables
 
 | Table | Columns | Relationship to Workforce Data |
 |---|---|---|
@@ -37,7 +37,7 @@ One row per employee. The raw file had 16 fields, and the Remarks field was remo
 
 The Date table is generated in DAX with `CALENDARAUTO()` and marked as a date table. Country is an attribute of Location: Kenya (Nairobi, Mombasa, Kisumu), Uganda (Kampala), Tanzania (Dar es Salaam) and Rwanda (Kigali).
 
-## Key definitions
+## Key Definitions
 
 - **Current employee:** Attrition Status = Active (208 employees).
 - **Leaver:** Attrition Status = Left (35 employees).
