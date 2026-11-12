@@ -82,7 +82,7 @@ DIVIDE(
 )
 ```
 
-### Performance and training
+### Performance and Training
 
 ```
 Rated Employees =
@@ -122,7 +122,7 @@ DIVIDE(
 
 `NOT ISBLANK` is used wherever a comparison could treat a blank as 0, so missing values are not counted as zero training or a low rating. `KEEPFILTERS` in `Rated Employees` lets the measure work when Performance Rating is on a chart axis.
 
-### Compensation and diversity
+### Compensation and Diversity
 
 ```
 Avg Monthly Salary =
@@ -149,7 +149,7 @@ Gender Pay Gap % = DIVIDE([Avg Salary Male] - [Avg Salary Female], [Avg Salary M
 
 `Avg Salary Female` and `Avg Salary Male` reuse `Avg Monthly Salary`, so they inherit its filter on current employees. A negative `Gender Pay Gap %` means women earn more than men on average. The gap is unadjusted for role, tenure or education.
 
-## Model dependencies
+## Model Dependencies
 
 - `Exits` and `Avg Tenure of Leavers (Years)` (and so `Early Attrition %`) need the inactive relationship between `Date[Date]` and `Workforce Data[Exit Date]`.
 - `Unknown Age Headcount` needs the `Age Band` column.
